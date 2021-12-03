@@ -1,0 +1,30 @@
+<header>
+  <div class="left">
+    <img src="assets/icon.webp" alt="logo" width="90" height="90">
+    <div class="separator">|</div>
+    <h1>Download Center</h1>
+  </div>
+  <div class="right">
+    <button mat-button>Forum</button>
+    <button mat-button>Classic view</button>
+  </div>
+</header>
+
+<div class="page-container">
+  <div class="globe-container">
+    <div class="globe-wrapper">
+      <app-globe [pins]="[{
+      coords: {
+        lat: -23.5,
+        long: -46.6
+      },
+      name: 'Pin 1',
+      newReleaseTag: false,
+      id: 1
+      }]"></app-globe>
+    </div>
+  </div>
+
+  <app-project-card></app-project-card>
+</div>
+

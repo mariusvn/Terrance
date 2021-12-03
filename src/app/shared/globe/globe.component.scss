@@ -1,0 +1,6 @@
+#earth-container {
+  height: 100%;
+  &::before {
+    padding-top: unset;
+  }
+}

@@ -1,0 +1,79 @@
+:host {
+  background-color: #182139;
+  display: block;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90px;
+  padding: 10px 20px 0 20px;
+
+  @media screen and (max-width: 768px) {
+    height: 126px;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: content-box;
+    .left, .right {
+      margin: 0 !important;
+    }
+    @media screen and (max-width: 350px) {
+      .left, .right {
+        width: auto !important;
+      }
+      h1 {
+        text-align: center;
+      }
+      img, .separator {
+        display: none;
+      }
+    }
+  }
+
+  .left {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 330px;
+    .separator {
+      vertical-align: middle;
+      color: #cccccc
+    }
+  }
+  .right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+    button {
+      margin: 0 10px;
+    }
+  }
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 100px);
+  padding: 0 60px 0 20px;
+  align-items: center;
+}
+.globe-container {
+  height: calc(100% - 100px);
+  width: 100%;
+  text-align: center;
+  .globe-wrapper {
+    height: 100%;
+    overflow: hidden;
+    app-globe {
+      height: 100%;
+      width: 100%;
+      display: inline-block;
+    }
+  }
+}

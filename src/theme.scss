@@ -1,0 +1,62 @@
+@use '@angular/material/core/theming/theming';
+@use '@angular/material/core/core';
+@use '@angular/material/core/theming/all-theme';
+@use '@angular/material/core/theming/palette';
+@use 'sass:map';
+
+@include core.core();
+
+$dark-palette: (
+  50: #e3e4e7,
+  100: #babcc4,
+  200: #8c909c,
+  300: #5d6474,
+  400: #3b4257,
+  500: #182139,
+  600: #151d33,
+  700: #11182c,
+  800: #0e1424,
+  900: #080b17,
+  A100: #587aff,
+  A200: #2551ff,
+  A400: #0030f1,
+  A700: #002bd8,
+  contrast: (
+    50: #e3e4e7,
+    100: #babcc4,
+    200: #8c909c,
+    300: #5d6474,
+    400: #3b4257,
+    500: #182139,
+    600: #151d33,
+    700: #11182c,
+    800: #0e1424,
+    900: #080b17,
+    A100: #587aff,
+    A200: #2551ff,
+    A400: #0030f1,
+    A700: #002bd8,
+  )
+);
+
+$my-primary: theming.define-palette($dark-palette, 700, 500, 800);
+$my-secondary: theming.define-palette($dark-palette, A200, A100, A400);
+
+$background-palette: (
+  background: #182139,
+  card: #0C1429,
+);
+
+$foreground-palette: (
+);
+
+$my-theme: (
+  primary: $my-primary,
+  accent: $my-secondary,
+  warn: palette.$yellow-palette,
+  foreground: map.merge(palette.$dark-theme-foreground-palette, $foreground-palette),
+  background: map.merge(palette.$dark-theme-background-palette, $background-palette)
+);
+
+@include all-theme.all-component-themes($my-theme);
+
