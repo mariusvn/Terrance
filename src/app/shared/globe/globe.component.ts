@@ -10,12 +10,7 @@ declare const Earth: any;
 export class GlobeComponent implements OnInit {
 
   @ViewChild('earthContainer') earthContainer?: ElementRef;
-  @Input('pins') pins?: Array<{
-    coords: {lat: number, long: number},
-    name: string,
-    id: number,
-    newReleaseTag: boolean
-  }>;
+  @Input('pins') pins?: Array<Pin>;
   public earth: any;
   public static isEarthLoaded = false;
 
