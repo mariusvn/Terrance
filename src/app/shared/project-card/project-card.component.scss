@@ -1,0 +1,25 @@
+mat-card {
+  padding: 0;
+  max-width: 450px;
+
+  img {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 450px;
+  }
+
+  mat-card-actions {
+    margin: 0 0 10px 0;
+    padding-bottom: 0;
+  }
+
+  .card-content {
+    padding: 5px 15px;
+  }
+
+  p {
+    font-family: system-ui;
+    text-align: justify;
+    font-size: 15px;
+  }
+}

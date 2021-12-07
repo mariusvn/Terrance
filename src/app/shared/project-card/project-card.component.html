@@ -1,10 +1,17 @@
 <mat-card>
-  <img src="assets/icon.webp" alt=""/>
-  <mat-card-content>
-    <p>This card has divider and indeterminate progress as footer</p>
-    <p>gdfgdfg</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-stroked-button>View</button>
-  </mat-card-actions>
+  <ng-container *ngIf="project">
+    <img [src]="urlOrigin + '/' + project.thumbnail" alt=""/>
+    <div class="card-content">
+      <mat-card-title>{{project.name}}</mat-card-title>
+      <mat-card-content>
+        <p class="description">{{project.description}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button>View</button>
+      </mat-card-actions>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!project">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </ng-container>
 </mat-card>
