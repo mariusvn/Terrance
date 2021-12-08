@@ -11,10 +11,12 @@ export class GlobeComponent implements OnInit {
 
   @ViewChild('earthContainer') earthContainer?: ElementRef;
   @Input('pins') pins?: Array<Pin>;
+  @Input('onPinSelected') onPinSelected: (pin: Pin) => void = () => {};
   public earth: any;
   public static isEarthLoaded = false;
 
   private markers: Array<any> = [];
+  private currentPin: Pin | null = null;
 
   constructor() {
     this.initializeEarth = this.initializeEarth.bind(this);
@@ -75,8 +77,25 @@ export class GlobeComponent implements OnInit {
         projectId: pin.id
       });
       overlay.element.classList.add('map-name');
-      overlay.element.innerHTML = `<p>${((pin.newReleaseTag) ? '<span class="new">NEW RELEASE: </span>' : '') + pin.name}</p>`;
+      overlay.element.innerHTML = `<p class="pin-text">${((pin.newReleaseTag) ? '<span class="new">NEW RELEASE: </span>' : '') + pin.name}</p>`;
       this.markers.push(marker);
+      marker.addEventListener('click', () => {
+        this.onPinSelected(pin);
+        this.currentPin = pin;
+        this.earth.goTo(marker.location);
+        this.markers.forEach(m => {
+          m.color = '#4671b2';
+        });
+        this.earth.autoRotate = false;
+        marker.color = '#7391c9';
+      });
+      marker.addEventListener('mouseover', () => {
+        marker.color = '#7391c9';
+      });
+      marker.addEventListener('mouseout', () => {
+        if (!this.currentPin || this.currentPin.id !== pin.id)
+          marker.color = '#4671b2';
+      })
     }
   }
 

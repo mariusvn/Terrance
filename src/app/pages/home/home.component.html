@@ -13,10 +13,12 @@
 <div class="page-container">
   <div class="globe-container">
     <div class="globe-wrapper">
-      <app-globe [pins]="pins"></app-globe>
+      <app-globe [pins]="pins" [onPinSelected]="onPinSelected"></app-globe>
     </div>
   </div>
 
-  <app-project-card projectSlug="red-sea"></app-project-card>
+  <ng-container *ngIf="selectedProjectSlug">
+    <app-project-card [projectSlug]="selectedProjectSlug"></app-project-card>
+  </ng-container>
 </div>
 

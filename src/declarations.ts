@@ -6,7 +6,7 @@ declare const Earth: {
 type Pin = {
   coords: {lat: number, long: number},
   name: string,
-  id: number,
+  id: string,
   newReleaseTag: boolean
 };
 
