@@ -9,7 +9,7 @@ import {environment} from "../../../environments/environment";
 })
 export class ProjectCardComponent implements OnInit, OnChanges {
 
-  @Input() projectSlug?: string;
+  @Input() projectSlug?: string | null;
 
   project: Project | undefined;
   urlOrigin: string = environment.apiUrl;

@@ -57,23 +57,50 @@ header {
 }
 
 .page-container {
-  display: flex;
-  flex-direction: row;
+  position: relative;
   height: calc(100% - 100px);
-  padding: 0 60px 0 20px;
-  align-items: center;
-}
-.globe-container {
-  height: calc(100% - 100px);
-  width: 100%;
-  text-align: center;
-  .globe-wrapper {
-    height: 100%;
-    overflow: hidden;
-    app-globe {
+  .globe-container {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    right: 520px;
+    transition: right 0.2s ease-in-out;
+
+    display: block;
+
+    &.fullwidth {
+      right: 20px;
+    }
+
+
+    .globe-wrapper {
       height: 100%;
-      width: 100%;
-      display: inline-block;
+      overflow: hidden;
+      app-globe {
+        height: 100%;
+        width: 100%;
+        display: inline-block;
+      }
+    }
+  }
+  .card-container {
+    &.removed {
+      width: 0;
+      right: 0;
+      transition: width .2s ease-in-out;
+    }
+    position: absolute;
+    right: 60px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    transition: width .1s ease-in, right .05s ease-out .1s;
+    overflow: hidden;
+    width: 450px;
+    app-project-card {
     }
   }
 }

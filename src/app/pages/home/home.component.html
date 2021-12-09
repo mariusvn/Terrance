@@ -11,14 +11,14 @@
 </header>
 
 <div class="page-container">
-  <div class="globe-container">
+  <div class="globe-container" [ngClass]="{'fullwidth': !selectedProjectSlug}">
     <div class="globe-wrapper">
       <app-globe [pins]="pins" [onPinSelected]="onPinSelected"></app-globe>
     </div>
   </div>
 
-  <ng-container *ngIf="selectedProjectSlug">
+  <div class="card-container" [ngClass]="{'removed': !selectedProjectSlug}">
     <app-project-card [projectSlug]="selectedProjectSlug"></app-project-card>
-  </ng-container>
+  </div>
 </div>
 
