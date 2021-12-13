@@ -1,0 +1,16 @@
+<header>
+  <div class="left">
+    <img src="assets/icon.webp" alt="logo" width="90" height="90">
+    <div class="separator">|</div>
+    <h1>Download Center</h1>
+  </div>
+  <div class="right">
+    <ng-container *ngIf="!!projectTitle">
+      <span>{{projectTitle}}</span>
+    </ng-container>
+    <ng-container *ngIf="!projectTitle">
+      <button mat-button>Forum</button>
+      <button mat-button>Classic view</button>
+    </ng-container>
+  </div>
+</header>

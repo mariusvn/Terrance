@@ -7,7 +7,7 @@
         <p class="description">{{project.description}}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button>View</button>
+        <button mat-stroked-button [routerLink]="['/view']" [queryParams]="{game: project.slug}">View</button>
       </mat-card-actions>
     </div>
   </ng-container>

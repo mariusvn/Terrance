@@ -5,23 +5,28 @@ import { ProjectCardComponent } from './project-card/project-card.component';
 import { MatCardModule } from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { HeaderComponent } from './header/header.component';
+import {RouterModule} from "@angular/router";
 
 
 
 @NgModule({
   declarations: [
     GlobeComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    RouterModule
   ],
   exports: [
     GlobeComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
+    HeaderComponent
   ]
 })
 export class SharedModule { }
